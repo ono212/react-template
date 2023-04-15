@@ -1,0 +1,45 @@
+{
+  "name": "react-template",
+  "version": "1.0.0",
+  "description": "React application template",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ono212/react-template.git"
+  },
+  "keywords": [
+    "react",
+    "template"
+  ],
+  "contributors": [
+    {
+      "name": "Molly",
+      "email": "onoonoono212@gmail.com"
+    },
+    {
+      "name": "Min",
+      "email": "the7mincheol@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ono212/react-template/issues"
+  },
+  "homepage": "https://github.com/ono212/react-template#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@lighttypes/eslint-config-base": "^1.0.1",
+    "@lighttypes/eslint-config-import": "^1.0.1",
+    "@lighttypes/eslint-config-react": "^1.0.1",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4"
+  }
+}

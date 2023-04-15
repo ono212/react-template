@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "extends": [
+    "@lighttypes/eslint-config-base",
+    "@lighttypes/eslint-config-import",
+    "@lighttypes/eslint-config-react"
+  ],
+  "ignorePatterns": ["coverage", "dist"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["./tsconfig.json"]
+      }
+    }
+  }
+}
