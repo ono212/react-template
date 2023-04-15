@@ -1,5 +1,5 @@
 {
-  "name": "react-template",
+  "name": "@lighttypes/react-template",
   "version": "1.0.0",
   "description": "React application template",
   "main": "index.js",
