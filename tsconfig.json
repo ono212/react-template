@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "checkJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": false,
@@ -10,14 +10,10 @@
     "lib": ["esnext", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext",
-    "types": ["node"]
+    "target": "esnext"
   },
   "include": ["**/*.ts", "**/*.tsx"]
 }
