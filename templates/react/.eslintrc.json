@@ -3,9 +3,10 @@
   "extends": [
     "@lighttypes/eslint-config-base",
     "@lighttypes/eslint-config-import",
+    "@lighttypes/eslint-config-react",
     "prettier"
   ],
-  "ignorePatterns": ["templates", "coverage", "dist"],
+  "ignorePatterns": ["coverage", "dist"],
   "overrides": [
     {
       "env": {
@@ -19,5 +20,15 @@
       ],
       "plugins": ["jest"]
     }
-  ]
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["./tsconfig.json"]
+      }
+    },
+    "react": {
+      "version": "18"
+    }
+  }
 }

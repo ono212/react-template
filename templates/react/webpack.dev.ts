@@ -63,7 +63,6 @@ const developmentConfig: Configuration = {
   },
   devServer: {
     historyApiFallback: { index: '/index.html' },
-    port: 9097,
   },
   plugins: [
     new HtmlWebpackPlugin({
