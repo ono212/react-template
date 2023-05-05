@@ -7,6 +7,20 @@
     "prettier"
   ],
   "ignorePatterns": ["coverage", "dist"],
+  "overrides": [
+    {
+      "env": {
+        "jest/globals": true
+      },
+      "extends": ["plugin:jest/recommended"],
+      "excludedFiles": ["**/test/playwright/**/?(*.)+(spec|test).[tj]s?(x)"],
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[tj]s?(x)"
+      ],
+      "plugins": ["jest"]
+    }
+  ],
   "settings": {
     "import/resolver": {
       "typescript": {
