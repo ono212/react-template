@@ -2,9 +2,12 @@
   "name": "@lighttypes/react-template",
   "version": "1.0.0",
   "description": "React application template",
+  "bin": {
+    "create-react-app": "./bin/create-react-app.js"
+  },
   "main": "index.js",
   "scripts": {
-    "create": "ts-node ./scripts/create-app"
+    "create": "ts-node ./scripts/create-app/index.js"
   },
   "repository": {
     "type": "git",
@@ -33,10 +36,12 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
     "@types/ejs": "^3.1.2",
     "@types/glob": "^8.1.0",
     "@types/node": "^20.0.0",
     "chalk": "^4.1.2",
+    "cross-spawn": "^7.0.3",
     "ejs": "^3.1.9",
     "glob": "^8.1.0",
     "ts-node": "^10.9.1"

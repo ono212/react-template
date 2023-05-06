@@ -1,7 +1,7 @@
 const App = () => {
   return (
     <div>
-      <h1>This is React app</h1>
+      <h1>This is <%= packageName %>.</h1>
 
       <div>
         <span>See who&apos;s waiting for you </span>

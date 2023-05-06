@@ -1,13 +1,19 @@
 # React template
 
-> 🚨 DISCLAIMER: This project is not finished yet. It is still in development.
+## How to use
 
-This is a template for creating a React app with TypeScript and Webpack.
+After initializing a new npm project, run the following commands:
 
-Stacks:
+```sh
+npm install --save-dev ts-node
+npx @lighttypes/react-template <package-name>
+```
 
-- React 18
+Then it will generate a new React project in the current directory that is shipped with the following features:
+
 - TypeScript
 - Webpack
+- ESLint
+- Prettier
 - Jest
 - React Testing Library
