@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "create": "ts-node ./scripts/create-app/index.js"
+    "create": "ts-node ./scripts/create-app"
   },
   "repository": {
     "type": "git",
