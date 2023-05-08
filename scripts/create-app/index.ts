@@ -5,6 +5,8 @@ import { updatePackageJson } from '../utils/update-package-json';
 import chalk from 'chalk';
 import { installAppPackage } from '../utils/install-app-package';
 
+type Command = { name: string; description: string };
+
 const isMonorepoDisabled =
   process.argv.includes('--monorepo=false') ||
   (process.argv.includes('--monorepo') &&
@@ -19,12 +21,71 @@ const isMonorepoDisabled =
     process.exit(1);
   }
 
+  console.log(`Creating a new React app in ${chalk.green(appRootPath)}.\n`);
+
+  const stopProgress = printProgress('In progess');
+
   await copyTemplate(appRootPath, packageName);
 
   if (isMonorepoDisabled) {
     installAppPackage(appRootPath);
-    return;
-  }
 
-  await updatePackageJson(packageName);
+    stopProgress();
+
+    const message = `Success! Created ${packageName} at ${appRootPath}\n\nInside that directory, you can run several commands:\n`;
+    const commands = [
+      { name: 'npm run dev', description: 'Starts the development server.' },
+      {
+        name: 'npm run build',
+        description: 'Bundles the app into static files for production.',
+      },
+      { name: 'npm run test', description: 'Starts the test runner.' },
+    ];
+    printMessageWithCommands(message, commands);
+  } else {
+    await updatePackageJson(packageName);
+
+    stopProgress();
+
+    const message = `Success! Created ${packageName} at ${appRootPath}\n\nYou can run several commands:\n`;
+    const commands = [
+      {
+        name: `npm run dev -w ${packageName}`,
+        description: 'Starts the development server.',
+      },
+      {
+        name: `npm run build -w ${packageName}`,
+        description: 'Bundles the app into static files for production.',
+      },
+      {
+        name: `npm run test -w ${packageName}`,
+        description: 'Starts the test runner.',
+      },
+    ];
+    printMessageWithCommands(message, commands);
+  }
 })();
+
+function printMessageWithCommands(message: string, commands: Command[]) {
+  console.log(`✨ ${message}`);
+  commands.forEach((command) => {
+    console.log(chalk.cyan(`  ${command.name}`));
+    console.log(`    ${command.description}\n`);
+  });
+}
+
+function printProgress(message: string) {
+  let index = 0;
+  const dotsInterval = setInterval(() => {
+    process.stdout.clearLine(0);
+    process.stdout.cursorTo(0);
+    process.stdout.write(`${message}${'.'.repeat(index % 4)}`);
+    index++;
+  }, 500);
+
+  return () => {
+    clearInterval(dotsInterval);
+    process.stdout.clearLine(0);
+    process.stdout.cursorTo(0);
+  };
+}
