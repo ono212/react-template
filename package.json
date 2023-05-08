@@ -1,6 +1,6 @@
 {
   "name": "@lighttypes/react-template",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "React application template",
   "bin": {
     "create-react-app": "./bin/create-react-app.js"
