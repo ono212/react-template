@@ -6,7 +6,7 @@ describe('App', () => {
     render(<App />);
 
     expect(
-      screen.getByRole('heading', { name: 'This is React app' })
+      screen.getByRole('heading', { name: 'This is <%= packageName %>.' })
     ).toBeInTheDocument();
   });
 });

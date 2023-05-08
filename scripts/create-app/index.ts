@@ -5,6 +5,11 @@ import { updatePackageJson } from '../utils/update-package-json';
 import chalk from 'chalk';
 import { installAppPackage } from '../utils/install-app-package';
 
+const isMonorepoDisabled =
+  process.argv.includes('--monorepo=false') ||
+  (process.argv.includes('--monorepo') &&
+    process.argv[process.argv.indexOf('--monorepo') + 1] === 'false');
+
 (async function main() {
   const { packageName, appRootPath } = getAppInfo();
 
@@ -16,10 +21,10 @@ import { installAppPackage } from '../utils/install-app-package';
 
   await copyTemplate(appRootPath, packageName);
 
-  if (process.argv.includes('--monorepo')) {
-    await updatePackageJson(packageName);
+  if (isMonorepoDisabled) {
+    installAppPackage(appRootPath);
     return;
   }
 
-  installAppPackage(appRootPath);
+  await updatePackageJson(packageName);
 })();
