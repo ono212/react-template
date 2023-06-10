@@ -10,7 +10,7 @@ cd react-template
 
 npm install
 
-npm run create <project-name>
+npm run create <project-name> --monorepo
 ```
 
 Then it will generate a new React project in the current directory that is shipped with the following features:
